@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-left">
+            <a href="#home" class="icon"><strong> TheDO </strong> List</a>
+        </div>
+        <div class="top-right">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <img src="assets/day-and-night.png" alt="Toggle Theme">
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <aside class="left-panel">
+            <h2>Projects Catalogue</h2>
+            <div class="project-list" id="project-list"></div>
+            <div class="add-project">
+                <input type="text" id="new-project" placeholder="Add a new project..." />
+                <button onclick="addProject()">+</button>
+            </div>
+        </aside>
+
+        <section class="right-panel">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+
+            <div class="task-header">
+                <div class="idk2"><h2 id="selected-project" class="">Select a Project</h2></div>
+                    
+                <div class="idk flex " >
+                        <button onclick="editProjectName()">Edit Name</button>
+                        <button onclick="deleteProject()">Delete</button>
+                        <button onclick="toggleCompletedTasks()">Completed</button>
+                </div>
+            </div>
+
+            <div class="task-list" id="task-list"></div>
+
+            <div class="completed-tasks" id="completed-tasks" style="display: none;">
+                <h3>Completed Tasks</h3>
+            </div>
+
+            <div class="add-task">
+                <input type="text" id="new-task" placeholder="Enter a task..." />
+                <input type="text" id="task-link" placeholder="Add a link (must)..." />
+                <button onclick="addTask()">Add Task</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+      </script>
+</body>
+</html>

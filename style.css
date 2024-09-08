@@ -1,0 +1,729 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+        /* For vertical scrollbar */
+    ::-webkit-scrollbar {
+        width: 0.8rem; /* Width of the scrollbar */
+    }
+
+    /* For horizontal scrollbar */
+    ::-webkit-scrollbar-horizontal {
+        height: 2rem; /* Height of the horizontal scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #8F98A0; /* Gray-blue color for the thumb */
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #22272E; /* Dark background for the track */
+        border-radius: 10px;
+    }
+
+      
+}
+
+/* Theme Variables */
+:root {
+    --background-color: #d1d1d1;
+    --main-heading:#be043f;
+    --text-color: #333;
+    --panel-color: #fff;
+    --accent-color: #2c3e50;
+    --button-color: #2c3e50;
+    --button-text-color: #fff;
+    --left-pannel:#F6F6F6;
+    --right-pannel-color: #e6e6e6f4;
+    --right-pannel-high:#fff;
+    --main-project:#535079f6;
+    --main-highlight:#3b3957;
+    --add-bottom: #47698cce;
+    --item-color: #2c3e50;
+    --off-input: #ecf0f1;
+    --in-input:#dcdde1;
+    --butt-hover:#1e2b37;
+    --h2:#364F6B;
+    --grad1:#1565C0;
+    --grad2:#b92b27;
+    --grad3:#b92b27;
+}
+
+body.dark-theme {
+    --background-color: #333;
+    --text-color: #149077;
+    --panel-color: #444;
+    --accent-color: #24abb2;
+    --button-color:  #1abc9c;
+    --button-text-color: #fffdfd;
+    --left-pannel:#212020;
+    --right-pannel-color: #212020af;
+    --right-pannel-high:#212020;
+    --main-project:#535079f6;
+    --main-highlight:#3b3957;
+    --add-bottom: #0e826a;
+    --item-color: #0e826a;
+    --off-input: #ebecec;
+    --in-input:#cacacb;
+    --but-hover:#1e2b37;
+    --h2: #1abc9c;
+    --grad1:#d53369;
+    --grad2:#cbad6d;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    z-index: 10;
+}
+
+.top-left {
+    font-family: "Poppins";
+    margin-left: 38%;
+}
+.icon{
+    
+    font-size: 3rem;
+    font-weight: 800;
+    
+    >strong {
+        font-size: 4.5rem;
+        padding: 2rem;
+        padding-right: 0;
+        
+        color: var(--main-heading);
+        font-weight: 800;
+    } 
+}
+
+.top-right{
+    >button{
+        >img{
+            width: 4rem;
+            transition: 0.3s ease-in-out;
+        }
+        >img:hover{
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.theme-toggle {
+    padding: 5px 5px;
+    border: none;
+    border-radius: 2000px;
+    background-color: #3333336e;
+    color: var(--button-text-color);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Container Styling */
+.container {
+    margin-top: 0rem;
+    display: flex;
+    padding: 80px 20px 20px 20px;
+    height: 100vh;
+}
+
+/* Left Panel Styling */
+.left-panel {
+    width: 25%;
+    padding: 1rem;
+    box-shadow:
+        0.2px 0.2px 0.8px rgba(0, 0, 0, 0.031),
+        0.6px 0.6px 1.9px rgba(0, 0, 0, 0.044),
+        1.1px 1.1px 3.6px rgba(0, 0, 0, 0.055),
+        2px 2px 6.5px rgba(0, 0, 0, 0.066),
+        3.8px 3.8px 12.1px rgba(0, 0, 0, 0.079),
+        9px 9px 29px rgba(0, 0, 0, 0.11)
+        ;
+    border-radius: 10px;
+    margin-right: 20px;
+    position: relative;
+    overflow-y: auto;
+    transition: background-color 0.3s ease;
+    
+    background-color: var(--left-pannel);
+}
+
+.left-panel h2 {
+    text-align: center;
+    padding: 1rem;
+    text-decoration: underline;
+    text-underline-offset: 2rem;
+    margin-bottom: 2.5rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    padding-bottom: 2.5rem;
+}
+
+.project-list {
+    margin-bottom: 20px;
+}
+
+.project-item {
+    color: rgb(235, 233, 233);
+    font-size: 1.4rem;
+    font-weight: 800;
+    padding: 0.7rem;
+    padding-left: 1.4rem;
+    margin-bottom: 10px;
+    background-color: var(--button-color);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.5s ease;
+}
+
+.project-item:hover {
+    background-color: var(--butt-hover);
+    transition: ease 0.3s ease, transform 0.4s ease;
+    font-size: 1.42rem;
+}
+
+.add-project {
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.add-project input {
+    width: 80%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-weight: 800;
+    color: var(--h2);
+    background-color: var(--background-color);
+    border: #FC5185 solid 1px;
+    border-radius: 10px;
+    transition: 0.4s ease-in-out;
+}
+.add-project input:hover{
+    background-color: rgb(225, 223, 223);
+    color: #212020;
+}
+
+.add-project button {
+    width: 15%;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-project button:hover {
+    border: 1px solid #2c3e50;
+    background-color: #FC5185;
+    transform: rotate(90deg);
+}
+
+
+
+
+/* Right Panel Styling */
+.right-panel {
+    width: 80%;
+    padding: 20px;
+    background-color: var(--right-pannel-color);
+    box-shadow:
+  0.4px 0.7px 2.2px rgba(0, 0, 0, 0.028),
+  1px 1.8px 5.3px rgba(0, 0, 0, 0.04),
+  1.9px 3.4px 9.9px rgba(0, 0, 0, 0.05),
+  3.4px 6px 17.6px rgba(0, 0, 0, 0.06),
+  6.3px 11.3px 33px rgba(0, 0, 0, 0.072),
+  15px 27px 79px rgba(0, 0, 0, 0.1)
+;
+    border-radius: 10px;
+    position: relative;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, 0.3s ease-in-out;
+}
+.right-panel.highlight{
+    background-color: var(--right-pannel-high);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    button{
+        margin: 1rem;
+        font-size: 1.2rem;
+        padding: 0.6rem;
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+        border-radius: 2.5rem;
+        transition: 0.2s ease-in-out;
+        color: var(--button-color);
+        border: 1px solid var(--button-color);
+        font-weight: 900;
+    }
+    button:hover{
+        color: white;
+        background-color: #fc5184c7;
+    }
+}
+.idk2{
+    width: 67%;
+}
+
+.task-header h2 {
+    width: 100%;
+    font-size: 4rem;
+    color: var(--h2);
+    font-family: "Poppins";
+    font-weight: 700;
+    overflow: hidden;
+    
+}
+
+.task-list, .completed-tasks {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.task-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: var(--off-input);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    counter-increment: task-counter;
+}
+
+.task-item::before {
+    content: counter(task-counter) ". ";
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.task-item:hover {
+    background-color: var(--in-input);
+    transform: translateY(-3px);
+}
+
+.add-task {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--add-bottom);
+    border-radius: 0 0 10px 10px;
+}
+
+.add-task {
+    padding-right: 4rem;
+    display: flex;
+    justify-content: space-evenly;
+    >input{
+            
+        width: 30%;
+        padding: 0.7rem;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        background-color: var(--in-input);
+        font-size: 1rem;
+        transition: 0.3s ease-in-out;
+        
+        color: var(--item-color);
+        font-size: 1.3rem;
+    }
+    >input:hover{
+        
+        background-color: var(--off-input);
+        width: 44%;
+    }
+}
+    
+
+
+
+.add-task button {
+    width: 11%;
+    font-family: "Poppins";
+    padding: 1rem;
+    background-color: var(--butt-hover);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.add-task button:hover {
+    box-shadow:
+  0.2px 0.3px 2.2px rgba(0, 0, 0, 0.008),
+  0.5px 0.7px 5.3px rgba(0, 0, 0, 0.012),
+  0.9px 1.3px 10px rgba(0, 0, 0, 0.015),
+  1.6px 2.2px 17.9px rgba(0, 0, 0, 0.018),
+  2.9px 4.2px 33.4px rgba(0, 0, 0, 0.022),
+  7px 10px 80px rgba(0, 0, 0, 0.03)
+;
+    transform: translateY(-0.9px);
+    background-color: var(--butt-hover);
+}
+
+/* Completed Tasks Styling */
+.completed-tasks h3 {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.completed-task-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #95a5a6;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: line-through;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.completed-task-item:hover {
+    background-color: #7f8c8d;
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-item,
+.task-item,
+.completed-task-item {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+button {
+    transition: transform 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Add animations to the buttons and other elements */
+@keyframes rollIn {
+    0% {
+        transform: translateX(-100%) rotate(-720deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fillProgress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-percentage);
+    }
+}
+
+/* Progress bar styling */
+.progress-container {
+    width: 100%;
+    height: 1rem;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.progress-bar {
+    height: 100%;
+    background-image: linear-gradient(to right, var(--grad1),var(--grad2));
+    backdrop-filter: blur(100px);
+    width: 0%;
+    animation: fillProgress 1s ease-in-out forwards;
+}
+
+
+.task-list, .completed-tasks {
+    transition: opacity 0.5s ease-in-out;
+    padding-right: 1rem;
+}
+
+/* Task Item Styling */
+.task-item, .completed-task-item {
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    background-color: var(--in-input);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.task-item:hover, .completed-task-item:hover {
+    background-color: #e8e9eb;
+    transform: translateY(-3px);
+}
+
+/* Completed Task Styling */
+.completed-task-item {
+    background-color: #95a5a6;
+    color: #ecf0f1;
+    text-decoration: line-through;
+}
+
+.completed-task-item:hover {
+    background-color: #7f8c8d;
+}
+
+/* Link Button Styling */
+.task-item button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #174f75;
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #76c7c0;
+    transition: width 0.3s ease;
+    border-radius: 10px;
+}
+
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+
+    ::-webkit-scrollbar {
+        width: 1rem; /* Width of the scrollbar */
+    }
+
+    /* For horizontal scrollbar */
+    ::-webkit-scrollbar-horizontal {
+        height: 1rem; /* Height of the horizontal scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #8F98A0; /* Gray-blue color for the thumb */
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #22272E; /* Dark background for the track */
+        border-radius: 5px;
+    }
+    /* Adjust the top bar for mobile */
+    .top-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        width: 100%;
+    }
+
+    /* Ensure the icon and button are centered and clickable */
+    .top-left,
+    .top-right {
+        display: flex;
+        margin-bottom: 0.7rem;
+    }
+
+    .icon {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-left: -40%;
+    }
+
+    .theme-toggle {
+        width: auto;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .theme-toggle img {
+        width: 25px;
+    }
+
+    /* Adjust the container to be column-based */
+    .container {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Full-width project catalogue and task sections */
+    .left-panel, .right-panel {
+        
+        margin-top: 10rem;
+        width: 95%;
+        margin-bottom: 0rem;
+        padding: 10px;
+    }
+    .flex{
+        display: flex;
+        
+    }
+    .left-panel h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .right-panel{
+        margin-top: 2rem;
+        width: 100%;
+        height: 78vh;
+    }
+
+    /* Ensure buttons are full-width and clickable */
+    .add-project input, .add-project button,
+    .add-task input, .add-task button {
+        width: 10%;
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+    .add-project input, .add-task-input{
+        width: 100%;
+    }
+
+    /* Make the progress bar more visible */
+    .progress-container {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .progress-bar {
+        height: 10px;
+        border-radius: 5px;
+        background-color: #4caf50;
+    }
+
+    /* Task header adjustments */
+    .task-header {
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .task-header>div> h2 {
+        font-size: 2.5rem;
+        padding-left: 1rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .task-header button {
+        font-weight: 700;
+        width: 80%;
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    /* Task list styling */
+    .task-list, .completed-tasks {
+        width: 100%;
+        height: 38vh;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 1rem;
+    }
+
+    /* Ensure inputs are full-width */
+    .add-task input {
+        margin-bottom: 10px;
+        width: 40%;
+    }
+    .add-task{
+        height: 8rem;
+        padding: 1.2rem;
+        >button{
+            height: 4rem;
+            width: 4rem;
+            padding: 0.2rem;
+        }
+    }
+}
